@@ -147,4 +147,11 @@ class Entreprise
 
         return $this->adresse." ".$this->cp." ".$this->ville;
     }
+
+    public function getDateCreationFR(){
+
+        return $this->dateCreation->format("d-m-Y");
+    }
+
 }
+

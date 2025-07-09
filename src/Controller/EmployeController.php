@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Employe;
 use App\Repository\EmployeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,4 +21,14 @@ final class EmployeController extends AbstractController
         ]);
     }
     
+
+       #[Route('/employe/{id}', name: 'show_employe')]
+    public function show(Employe $employe): Response
+    {
+        return $this->render('employe/show.html.twig', [
+        'employe' => $employe,
+        ]);
+    }
+
+
 }
