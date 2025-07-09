@@ -136,8 +136,15 @@ class Entreprise
         return $this;
     }
 
+    
     public function __toString()
     {
-        return $this->raisonSociale. " (".$this->cp." ".$this->ville.")";
+        return $this->raisonSociale;
+    }
+
+    // Pour avoir l'adresse complete 
+    public function getAdresseComplete() {
+
+        return $this->adresse." ".$this->cp." ".$this->ville;
     }
 }

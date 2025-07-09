@@ -1,0 +1,16 @@
+{# Etend le layout  qui sera commun à toutes les vues #}
+{% extends 'base.html.twig' %} 
+
+{# Correspond au bloc de chaque vu #}
+{% block title %} Détail d'une entreprise{% endblock %}
+
+{% block body %}
+
+<h1>Détail d'une entreprise</h1>
+
+<h2> {{entreprise}}</h2>
+<p>
+    Adresse: {{entreprise.adresse}} {{entreprise.cp}}, {{entreprise.ville}}
+</p>
+
+{% endblock %}

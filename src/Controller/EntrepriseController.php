@@ -26,11 +26,23 @@ final class EntrepriseController extends AbstractController
         // Render permet de faire le lien entre le controller et la vue
 
        //1-   $entreprises = $entityManager->getRepository(Entreprise::class)->findAll();
-        $entreprises = $entrepriseRepository->findAll();  //2-
+       // C'est ce que va traduire doctrine et ca correspond a  SELECT * FROM entreprise  where strasbourg ORDER BY raisonSociale ASC
+       // Le premier tableau c'est le critère et la j'ai choisi a Strasbourg
+        $entreprises = $entrepriseRepository->findby([], ["raisonSociale" => "ASC"]);  //2-
         return $this->render('entreprise/index.html.twig', [
            'entreprises' => $entreprises,
         ]);
     }
+
+    // Definir la route et Nb : pas le meme name et la meme url 
+    #[Route('/entreprise/{id}', name: 'show_entreprise')]
+    public function show(Entreprise $entreprise): Response
+    {
+        return $this->render('entreprise/show.html.twig', [
+        'entreprise' => $entreprise,
+        ]);
+    }
+
 }
 
 
