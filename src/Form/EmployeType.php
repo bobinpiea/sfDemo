@@ -24,7 +24,7 @@ class EmployeType extends AbstractType
             ->add('ville', TextType::class)
             ->add('entreprise', EntityType::class, [
                 'class' => Entreprise::class,
-                'choice_label' => 'id',
+                'choice_label' => 'raisonSociale',
             ])
             ->add('valider', SubmitType::class)
         ;
